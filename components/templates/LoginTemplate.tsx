@@ -1,20 +1,23 @@
 import React from "react";
 import styled from "@emotion/styled";
+import KakaoLoginButton from "../atoms/buttons/KakaoLoginButton";
 
 const Container = styled.div`
   display: flex;
   height: 100vh;
 `;
 
-const LoginBox = styled.div<{ isEddy: boolean }>`
-  border: 1px solid red;
+const LoginBox = styled.div`
   margin: auto;
 `;
 
 const LoginTemplate = () => {
+
   return (
     <Container>
-      <LoginBox isEddy={true}>로그인 페이지</LoginBox>
+      <LoginBox>
+        <KakaoLoginButton />
+      </LoginBox>
     </Container>
   );
 };
