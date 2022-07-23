@@ -1,15 +1,18 @@
 import React from "react";
-import { useRecoilValue } from "recoil";
-import memberState from "../states/member/memberState";
 import LoginTemplate from "../components/templates/LoginTemplate";
+import { GetServerSideProps } from "next";
 
 const Index = () => {
-  let member = useRecoilValue(memberState);
   return (
     <div>
       <LoginTemplate />
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  console.log("ssr");
+  return { props: {} };
 };
 
 export default Index;

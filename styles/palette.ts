@@ -1,0 +1,17 @@
+export default {
+  white: "#ffffff",
+  gray_1: "#dcdcdc",
+  gray_2: "#c9c9c9",
+  gray_3: "#999999",
+  gray_4: "#6c6c6c",
+  navy_1: "#4c5d88",
+  navy_2: "#3d4a6c",
+  black: "#2e2e2e",
+  blue_1: "#2177ce",
+  blue_2: "#4c81d1",
+  orange_1: "#ec604e",
+  orange_2: "#fa573b",
+  button_red: "#f73a3a",
+  button_black: "#343A40",
+  button_logout_hover: "#343A40",
+};
