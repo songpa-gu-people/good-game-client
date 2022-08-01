@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../components/organism/Footer";
+import Footer from "../../components/global/organisms/Footer";
 import styled from "@emotion/styled";
 import BaseTemplateWithFooter from "../../components/templates/global/BaseTemplateWithFooter";
 import HomeTemplate from "../../components/templates/HomeTemplate";

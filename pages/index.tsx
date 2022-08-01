@@ -1,5 +1,5 @@
 import React from "react";
-import LoginTemplate from "../components/templates/LoginTemplate";
+import LoginTemplate from "../components/login/templates/LoginTemplate";
 import { GetServerSideProps } from "next";
 
 const Index = () => {
