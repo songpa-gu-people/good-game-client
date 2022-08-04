@@ -9,7 +9,7 @@ function useKakaoLogin() {
 
   const restApiKey = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
   const redirectUri = process.env.NEXT_PUBLIC_KAKAO_LOGIN_REDIRECT_URI;
-  const kakaoLoginUrl = `http://localhost:8080/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/login/oauth2/code/kakao`;
+  const kakaoLoginUrl = `http://localhost:8080/oauth2/authorization/kakao?redirect_uri=${redirectUri}`;
 
   useEffect(() => {
     const code = router.query.code;
