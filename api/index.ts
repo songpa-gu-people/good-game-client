@@ -1,9 +1,9 @@
 import axios, { AxiosInstance } from "axios";
+import TokenService from "./token/TokenService";
 
 export default class AxiosService {
-  static async getDefaultAxios(): Promise<AxiosInstance> {
-    const axiosInstance = axios.create();
-    axiosInstance.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
-    return axiosInstance;
+  static async settingAccessToken() {
+    const res = await TokenService.getAccessTokenFromRefresh();
+    axios.defaults.headers.common["Authorization"] = res.data.data;
   }
 }

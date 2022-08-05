@@ -3,7 +3,8 @@ import LoginTemplate from "../components/login/templates/LoginTemplate";
 import { GetServerSideProps } from "next";
 import cookies from "next-cookies";
 import { COOKIE } from "../constants/cookie";
-import TokenService from "../api/token/TokenService";
+import MatchingOptionService from "../api/matching/MatchingOptionService";
+import axios from "axios";
 
 const Index = () => {
   return (
@@ -14,13 +15,16 @@ const Index = () => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  // @ts-ignore
+  axios.defaults.headers.Cookie = context.req.headers.cookie;
+
   const allCookies = cookies(context);
   const refreshTokenByCookie = allCookies[COOKIE.refreshToken];
 
-  const res = await TokenService.getAccessTokenFromRefresh(
-    refreshTokenByCookie
-  );
-  const accessToken = res.data.data;
+  if (refreshTokenByCookie) {
+    const res = await MatchingOptionService.getMyMatchingOption();
+    console.log(res.data.data);
+  }
 
   return { props: {} };
 };

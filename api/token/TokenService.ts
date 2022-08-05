@@ -1,15 +1,8 @@
 import { ApiResponse } from "../types";
-import AxiosService from "../index";
+import axios from "axios";
 
 export default class TokenService {
-  static async getAccessTokenFromRefresh(
-    refreshToken: string
-  ): Promise<ApiResponse<string>> {
-    const axiosInstance = await AxiosService.getDefaultAxios();
-    return await axiosInstance.get(`/api/v1/token/access`, {
-      params: {
-        refreshToken,
-      },
-    });
+  static async getAccessTokenFromRefresh(): Promise<ApiResponse<string>> {
+    return await axios.get(`/api/v1/token/access`);
   }
 }
