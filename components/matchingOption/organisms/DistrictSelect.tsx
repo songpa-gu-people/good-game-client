@@ -60,7 +60,7 @@ const DistrictSelect = ({ selected, completeSelect }: Props) => {
             {tempSelected
               .sort((o1, o2) => o1._name.localeCompare(o2._name))
               .map((district) => (
-                <div
+                <div key={district.code}
                   onClick={() =>
                     setTempSelected((prevState) => {
                       return prevState.filter((pre) => pre != district);
