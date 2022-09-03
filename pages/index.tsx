@@ -22,8 +22,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const refreshTokenByCookie = allCookies[COOKIE.refreshToken];
 
   if (refreshTokenByCookie) {
-    const res = await MatchingOptionService.getMyMatchingOption();
-    console.log(res.data.data);
+    const matchingOption = await MatchingOptionService.getMyMatchingOption();
+    return {
+      redirect: {
+        permanent: false,
+        destination: matchingOption.data.data.exist ? "/home" : "/join",
+      },
+      props: {},
+    };
   }
 
   return { props: {} };

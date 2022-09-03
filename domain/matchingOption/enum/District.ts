@@ -83,6 +83,7 @@ export default class District {
       District.GWANAK_GU,
     ].sort((o1, o2) => o1._name.localeCompare(o2._name));
   }
+
   get code(): string {
     return this._code;
   }
