@@ -1,5 +1,5 @@
 import React from "react";
-import LoginTemplate from "../components/login/templates/LoginTemplate";
+import LoginTemplate from "../domain/components/login/templates/LoginTemplate";
 import { GetServerSideProps } from "next";
 import cookies from "next-cookies";
 import { COOKIE } from "../constants/cookie";

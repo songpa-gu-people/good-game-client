@@ -12,11 +12,11 @@ function useKakaoLogin() {
   const kakaoLoginUrl = `http://localhost:8080/oauth2/authorization/kakao?redirect_uri=${redirectUri}`;
 
   useEffect(() => {
-    const code = router.query.code;
+    const code = router?.query?.code;
     if (code) {
       setTokenFromCode(code);
     }
-  }, [router.query]);
+  }, [router]);
 
   useEffect(() => {
     if (token) {

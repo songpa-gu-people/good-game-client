@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import useKakaoLogin from "../../../../hooks/login/useKakaoLogin";
+import useKakaoLogin from "../../../../../hooks/login/useKakaoLogin";
 
 const Button = styled.img`
   cursor: pointer;
