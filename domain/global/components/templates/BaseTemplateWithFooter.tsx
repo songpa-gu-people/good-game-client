@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../global/organisms/Footer";
+import Footer from "../organisms/Footer";
 import styled from "@emotion/styled";
 
 const Container = styled.div`

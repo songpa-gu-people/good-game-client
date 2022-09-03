@@ -2,7 +2,7 @@ import React from "react";
 import FooterItem from "../molecules/FooterItem";
 import styled from "@emotion/styled";
 import { AiOutlineHome } from "react-icons/ai";
-import palette from "../../../styles/palette";
+import palette from "../../../../styles/palette";
 import { VscAccount } from "react-icons/vsc";
 import { RiWechatLine } from "react-icons/ri";
 

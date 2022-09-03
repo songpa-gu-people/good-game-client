@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import palette from "../../../styles/palette";
+import palette from "../../../../styles/palette";
 import Link from "next/link";
 
 const Container = styled.div`

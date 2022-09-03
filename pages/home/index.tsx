@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "../../components/global/organisms/Footer";
+import Footer from "../../domain/global/components/organisms/Footer";
 import styled from "@emotion/styled";
-import BaseTemplateWithFooter from "../../components/templates/global/BaseTemplateWithFooter";
-import HomeTemplate from "../../components/templates/HomeTemplate";
+import BaseTemplateWithFooter from "../../domain/global/components/templates/BaseTemplateWithFooter";
+import HomeTemplate from "../../domain/home/components/templates/HomeTemplate";
 
 const Index = () => {
   return (

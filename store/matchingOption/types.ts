@@ -1,4 +1,4 @@
-import { DistrictType } from "../../enum/District";
+import { DistrictType } from "../../domain/matchingOption/enum/District";
 
 export interface MatchingOptionState {
   districts: DistrictType[];

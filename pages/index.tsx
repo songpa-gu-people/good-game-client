@@ -1,8 +1,8 @@
 import React from "react";
-import LoginTemplate from "../domain/components/login/templates/LoginTemplate";
+import LoginTemplate from "../domain/login/components/templates/LoginTemplate";
 import { GetServerSideProps } from "next";
 import cookies from "next-cookies";
-import { COOKIE } from "../constants/cookie";
+import { COOKIE } from "../domain/global/constants/cookie";
 import MatchingOptionService from "../api/matching/MatchingOptionService";
 import axios from "axios";
 

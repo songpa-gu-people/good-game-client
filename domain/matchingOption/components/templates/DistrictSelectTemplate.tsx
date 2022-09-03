@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import District from "../../../enum/District";
+import District from "../../enum/District";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 import styled from "@emotion/styled";
-import palette from "../../../styles/palette";
-import ModalTemplate from "../../global/templates/ModalTemplate";
+import palette from "../../../../styles/palette";
+import ModalTemplate from "../../../global/components/templates/ModalTemplate";
 import DistrictSelect from "../organisms/DistrictSelect";
 
 const SelectedDistrictWrapper = styled.div``;

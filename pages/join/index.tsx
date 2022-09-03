@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import palette from "../../styles/palette";
 import { useRouter } from "next/router";
-import MatchingOptionInputTemplate from "../../components/matchingOption/templates/MatchingOptionInputTemplate";
+import MatchingOptionInputTemplate from "../../domain/matchingOption/components/templates/MatchingOptionInputTemplate";
 
 const Header = styled.div`
   border: 1px solid ${palette.gray_1};
