@@ -11,7 +11,7 @@ export default {
   blue_2: "#4c81d1",
   orange_1: "#ec604e",
   orange_2: "#fa573b",
-  button_red: "#f73a3a",
+  red: "#f73a3a",
   button_black: "#343A40",
   button_logout_hover: "#343A40",
 };

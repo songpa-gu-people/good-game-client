@@ -41,10 +41,10 @@ const SubmitWrapper = styled.div`
 
 interface Props {
   selected: District[];
-  completeSelect: (selected: District[]) => void;
+  submitSelect: (selected: District[]) => void;
 }
 
-const DistrictSelect = ({ selected, completeSelect }: Props) => {
+const DistrictSelectOrg = ({ selected, submitSelect }: Props) => {
   const [tempSelected, setTempSelected] = useState<District[]>(selected);
 
   const nonSelected = (): District[] => {
@@ -90,11 +90,11 @@ const DistrictSelect = ({ selected, completeSelect }: Props) => {
       <SubmitWrapper>
         <SubmitLargeButton
           buttonText={"저장"}
-          onClick={() => completeSelect(tempSelected)}
+          onClick={() => submitSelect(tempSelected)}
         />
       </SubmitWrapper>
     </Container>
   );
 };
 
-export default DistrictSelect;
+export default DistrictSelectOrg;

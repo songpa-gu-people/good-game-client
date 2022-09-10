@@ -25,7 +25,7 @@ const Index = () => {
         <span onClick={() => router.back()}>←</span>
         회원가입
       </Header>
-      <MatchingOptionInputTemplate />
+      <MatchingOptionInputTemplate districts={[]} genders={[]} />
     </div>
   );
 };

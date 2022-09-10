@@ -52,7 +52,7 @@ export default class District {
   static readonly DONGJAK_GU = new District("DONGJAK_GU", "동작구");
   static readonly GWANAK_GU = new District("GWANAK_GU", "관악구");
 
-  private constructor(readonly _code: DistrictType, readonly _name: string) {}
+  private constructor(readonly _districtType: DistrictType, readonly _name: string) {}
 
   static values(): District[] {
     return [
@@ -84,7 +84,7 @@ export default class District {
     ].sort((o1, o2) => o1._name.localeCompare(o2._name));
   }
 
-  get code(): string {
-    return this._code;
+  get _code(): string {
+    return this._districtType;
   }
 }
