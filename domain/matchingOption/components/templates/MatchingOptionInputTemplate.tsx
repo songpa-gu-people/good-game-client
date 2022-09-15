@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
-import DistrictSelectTemplate from "./DistrictSelectTemplate";
+import DistrictSelectModalAndTriggerButton from "../molecules/DistrictSelectModalAndTriggerButton";
+import Flex from "../../../global/components/atoms/wrapper/Flex";
+import District from "../../enum/District";
+import GenderSelectOrg from "../organisms/GenderSelectOrg";
+import Gender from "../../enum/Gender";
+import MatchingOptionService from "../../../../api/matching/MatchingOptionService";
+import SubmitLargeButton from "../../../global/components/atoms/buttons/SubmitLargeButton";
+import { useRouter } from "next/router";
 
 const Container = styled.div`
   display: flex;
@@ -17,20 +24,38 @@ const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-
-  & > div {
-    & > div:nth-of-type(2) {
-      padding: 0.5rem;
-    }
-  }
 `;
-const InputTitle = styled.div`
-  display: flex;
+
+const FormTitle = styled.div`
   font-size: 1.4rem;
   font-weight: 500;
+  align-items: center;
+  align-content: center;
 `;
 
-const MatchingOptionInputTemplate = () => {
+const SelectedDistrictWrapper = styled.div``;
+
+interface Props {
+  districts: District[];
+  genders: Gender[];
+}
+
+const MatchingOptionInputTemplate = ({ districts, genders }: Props) => {
+  const router = useRouter();
+  const [selectedDistricts, setSelectedDistricts] = useState<District[]>(districts);
+
+  const [selectedGenders, setSelectedGenders] = useState<Gender[]>(genders);
+
+  async function saveMyMatchingOption() {
+    try {
+      await MatchingOptionService.saveMyMatchingOption({
+        districts: selectedDistricts.map((district) => district._districtType),
+        genders: selectedGenders.map((gender) => gender._genderType),
+      });
+      router.push("/");
+    } catch (e) {}
+  }
+
   return (
     <Container>
       <Title>
@@ -39,16 +64,25 @@ const MatchingOptionInputTemplate = () => {
       </Title>
       <FormWrapper>
         <div>
-          <InputTitle>어디에서</InputTitle>
-          <div>
-            <DistrictSelectTemplate />
-          </div>
+          <Flex>
+            <FormTitle>어디에서</FormTitle>
+            <DistrictSelectModalAndTriggerButton
+              selectedDistricts={selectedDistricts}
+              setSelectedDistricts={setSelectedDistricts}
+            />
+          </Flex>
+          <SelectedDistrictWrapper>
+            {selectedDistricts.map((district) => {
+              return <div>{district._name}</div>;
+            })}
+          </SelectedDistrictWrapper>
         </div>
         <div>
-          <InputTitle>누구와</InputTitle>
-          <div></div>
+          <FormTitle>누구와</FormTitle>
+          <GenderSelectOrg selected={selectedGenders} setSelectedGenders={setSelectedGenders} />
         </div>
       </FormWrapper>
+      <SubmitLargeButton buttonText={"저장"} onClick={saveMyMatchingOption} />
     </Container>
   );
 };

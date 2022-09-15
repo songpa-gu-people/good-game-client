@@ -3,9 +3,7 @@ import { HYDRATE } from "next-redux-wrapper";
 
 export interface RootReducer {}
 
-const reducers: RootReducer = {};
-
-const combinedReducer = combineReducers(reducers);
+const combinedReducer = combineReducers({});
 
 export const rootReducer = (state, action) => {
   switch (action.type) {

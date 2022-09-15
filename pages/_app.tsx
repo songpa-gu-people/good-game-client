@@ -1,11 +1,12 @@
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
+import type { AppContext, AppInitialProps, AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { wrapper } from "../store/configStore";
 import { ReactQueryDevtools } from "react-query/devtools";
 import axios from "axios";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
+axios.defaults.withCredentials = true;
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,12 +21,20 @@ const app = ({ Component, pageProps }: AppProps) => {
     <>
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
-        {process.env.NODE_ENV !== "production" && (
-          <ReactQueryDevtools initialIsOpen={false} />
-        )}
+        {process.env.NODE_ENV !== "production" && <ReactQueryDevtools initialIsOpen={false} />}
       </QueryClientProvider>
     </>
   );
+};
+
+app.getInitialProps = async ({ Component, ctx }: AppContext): Promise<AppInitialProps> => {
+  let pageProps = {};
+
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+
+  return { pageProps };
 };
 
 export default wrapper.withRedux(app);

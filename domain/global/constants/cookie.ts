@@ -1,3 +1,3 @@
 export const COOKIE = {
-  refreshToken: "Gg_R",
+  REFRESH_TOKEN: "Gg_R",
 };

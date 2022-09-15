@@ -1,4 +1,7 @@
-import { DistrictType } from "../../domain/matchingOption/enum/District";
+import District, {
+  DistrictType,
+} from "../../domain/matchingOption/enum/District";
+import { GenderType } from "../../domain/matchingOption/enum/Gender";
 
 type Gender = "MAN" | "WOMAN";
 
@@ -7,4 +10,9 @@ export interface MatchingOptionResponse {
   districts: DistrictType[];
   genders: Gender[];
   exist: boolean;
+}
+
+export interface MatchingOptionSaveOrUpdateRequest {
+  districts: DistrictType[];
+  genders: GenderType[];
 }

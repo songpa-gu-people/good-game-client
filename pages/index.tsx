@@ -15,11 +15,10 @@ const Index = () => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  // @ts-ignore
-  axios.defaults.headers.Cookie = context.req.headers.cookie;
+  axios.defaults.headers["Cookie"] = context.req.headers.cookie;
 
   const allCookies = cookies(context);
-  const refreshTokenByCookie = allCookies[COOKIE.refreshToken];
+  const refreshTokenByCookie = allCookies[COOKIE.REFRESH_TOKEN];
 
   if (refreshTokenByCookie) {
     const matchingOption = await MatchingOptionService.getMyMatchingOption();

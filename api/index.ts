@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
 import TokenService from "./token/TokenService";
 
 export default class AxiosService {
