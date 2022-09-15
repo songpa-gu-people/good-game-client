@@ -3,6 +3,9 @@ import styled from "@emotion/styled";
 import palette from "../../styles/palette";
 import { useRouter } from "next/router";
 import MatchingOptionInputTemplate from "../../domain/matchingOption/components/templates/MatchingOptionInputTemplate";
+import { GetServerSideProps } from "next";
+import { wrapper } from "../../store/configStore";
+import axios from "axios";
 
 const Header = styled.div`
   border: 1px solid ${palette.gray_1};
@@ -29,5 +32,15 @@ const Index = () => {
     </div>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
+  (store) => async (context) => {
+    axios.defaults.headers["Cookie"] = context.req.headers.cookie;
+
+    return {
+      props: {},
+    };
+  },
+);
 
 export default Index;

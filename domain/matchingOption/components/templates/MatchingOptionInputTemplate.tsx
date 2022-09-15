@@ -42,8 +42,7 @@ interface Props {
 
 const MatchingOptionInputTemplate = ({ districts, genders }: Props) => {
   const router = useRouter();
-  const [selectedDistricts, setSelectedDistricts] =
-    useState<District[]>(districts);
+  const [selectedDistricts, setSelectedDistricts] = useState<District[]>(districts);
 
   const [selectedGenders, setSelectedGenders] = useState<Gender[]>(genders);
 
@@ -80,10 +79,7 @@ const MatchingOptionInputTemplate = ({ districts, genders }: Props) => {
         </div>
         <div>
           <FormTitle>누구와</FormTitle>
-          <GenderSelectOrg
-            selected={selectedGenders}
-            setSelectedGenders={setSelectedGenders}
-          />
+          <GenderSelectOrg selected={selectedGenders} setSelectedGenders={setSelectedGenders} />
         </div>
       </FormWrapper>
       <SubmitLargeButton buttonText={"저장"} onClick={saveMyMatchingOption} />

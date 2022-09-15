@@ -20,7 +20,6 @@ function useKakaoLogin() {
 
   useEffect(() => {
     if (token) {
-      console.log("서버로 토큰 발송: ", token);
       // const res = await KakaoLoginService.login(token);
     }
   }, [token]);
