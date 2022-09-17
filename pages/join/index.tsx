@@ -6,10 +6,9 @@ import MatchingOptionInputTemplate from "../../domain/matchingOption/components/
 import { GetServerSideProps } from "next";
 import { wrapper } from "../../store/configStore";
 import axios from "axios";
-import cookies from "next-cookies";
-import { COOKIE } from "../../domain/global/constants/cookie";
 import MatchingOptionService from "../../api/matching/MatchingOptionService";
-import { ROUTER_PATH } from "../../const/ROUTER_PATH";
+import { ROUTER_PATH } from "../../domain/global/constants/routerPath";
+import TokenValidator from "../../domain/global/utils/TokenValidator";
 
 const Header = styled.div`
   border: 1px solid ${palette.gray_1};
@@ -40,21 +39,26 @@ const Index = () => {
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
     axios.defaults.headers["Cookie"] = context.req.headers.cookie;
+    const isValidToken = await TokenValidator.isValidRefreshToken();
+    if (!isValidToken) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: ROUTER_PATH.LOGIN,
+        },
+        props: {},
+      };
+    }
 
-    const allCookies = cookies(context);
-    const refreshTokenByCookie = allCookies[COOKIE.REFRESH_TOKEN];
-
-    if (refreshTokenByCookie) {
-      const matchingOption = await MatchingOptionService.getMyMatchingOption();
-      if (matchingOption.data.data.exist) {
-        return {
-          redirect: {
-            permanent: false,
-            destination: ROUTER_PATH.HOME,
-          },
-          props: {},
-        };
-      }
+    const matchingOption = await MatchingOptionService.getMyMatchingOption();
+    if (matchingOption.data.data.exist) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: ROUTER_PATH.INDEX,
+        },
+        props: {},
+      };
     }
 
     return {

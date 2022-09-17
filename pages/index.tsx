@@ -1,32 +1,28 @@
 import React from "react";
-import LoginTemplate from "../domain/login/components/templates/LoginTemplate";
 import { GetServerSideProps } from "next";
-import cookies from "next-cookies";
-import { COOKIE } from "../domain/global/constants/cookie";
 import MatchingOptionService from "../api/matching/MatchingOptionService";
 import axios from "axios";
-import { ROUTER_PATH } from "../const/ROUTER_PATH";
+import { ROUTER_PATH } from "../domain/global/constants/routerPath";
+import TokenValidator from "../domain/global/utils/TokenValidator";
+import HomeTemplate from "../domain/home/components/templates/HomeTemplate";
+import BaseTemplateWithFooter from "../domain/global/components/templates/BaseTemplateWithFooter";
 
 const Index = () => {
   return (
-    <div>
-      <LoginTemplate />
-    </div>
+    <BaseTemplateWithFooter>
+      <HomeTemplate />
+    </BaseTemplateWithFooter>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   axios.defaults.headers["Cookie"] = context.req.headers.cookie;
-
-  const allCookies = cookies(context);
-  const refreshTokenByCookie = allCookies[COOKIE.REFRESH_TOKEN];
-
-  if (refreshTokenByCookie) {
-    const matchingOption = await MatchingOptionService.getMyMatchingOption();
+  const isValidToken = await TokenValidator.isValidRefreshToken();
+  if (!isValidToken) {
     return {
       redirect: {
         permanent: false,
-        destination: matchingOption.data.data.exist ? ROUTER_PATH.HOME : ROUTER_PATH.JOIN,
+        destination: ROUTER_PATH.LOGIN,
       },
       props: {},
     };
