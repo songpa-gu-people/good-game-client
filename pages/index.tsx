@@ -5,6 +5,7 @@ import cookies from "next-cookies";
 import { COOKIE } from "../domain/global/constants/cookie";
 import MatchingOptionService from "../api/matching/MatchingOptionService";
 import axios from "axios";
+import { ROUTER_PATH } from "../const/ROUTER_PATH";
 
 const Index = () => {
   return (
@@ -25,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       redirect: {
         permanent: false,
-        destination: matchingOption.data.data.exist ? "/home" : "/join",
+        destination: matchingOption.data.data.exist ? ROUTER_PATH.HOME : ROUTER_PATH.JOIN,
       },
       props: {},
     };
