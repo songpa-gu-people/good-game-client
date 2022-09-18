@@ -20,8 +20,8 @@ const Container = styled.div`
 const Footer = () => {
   return (
     <Container>
-      <FooterItem href={"/home"} icon={<AiOutlineHome />} name={"홈"} />
-      <FooterItem href={"/home"} icon={<AiOutlineHome />} name={"홈"} />
+      <FooterItem href={"/"} icon={<AiOutlineHome />} name={"홈"} />
+      <FooterItem href={"/"} icon={<AiOutlineHome />} name={"홈"} />
       <FooterItem href={"/chat"} icon={<RiWechatLine />} name={"채팅"} />
       <FooterItem href={"/account"} icon={<VscAccount />} name={"내정보"} />
     </Container>

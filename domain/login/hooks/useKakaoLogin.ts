@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import qs from "qs";
+import { kakaoConfig } from "../../../config";
 
 function useKakaoLogin() {
   const router = useRouter();
   const [token, setToken] = useState("");
 
-  const restApiKey = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
-  const redirectUri = process.env.NEXT_PUBLIC_KAKAO_LOGIN_REDIRECT_URI;
+  const restApiKey = kakaoConfig.apikey;
+  const redirectUri = kakaoConfig.loginRedirectUri;
   const kakaoLoginUrl = `http://localhost:8080/oauth2/authorization/kakao?redirect_uri=${redirectUri}`;
 
   useEffect(() => {

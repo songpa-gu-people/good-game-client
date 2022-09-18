@@ -4,8 +4,9 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { wrapper } from "../store/configStore";
 import { ReactQueryDevtools } from "react-query/devtools";
 import axios from "axios";
+import { serverConfig } from "../config";
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
+axios.defaults.baseURL = serverConfig.apiUri;
 axios.defaults.withCredentials = true;
 
 const queryClient = new QueryClient({
