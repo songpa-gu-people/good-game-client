@@ -73,7 +73,7 @@ const MatchingOptionInputTemplate = ({ districts, genders }: Props) => {
           </Flex>
           <SelectedDistrictWrapper>
             {selectedDistricts.map((district) => {
-              return <div>{district._name}</div>;
+              return <div key={district._districtType}>{district._name}</div>;
             })}
           </SelectedDistrictWrapper>
         </div>

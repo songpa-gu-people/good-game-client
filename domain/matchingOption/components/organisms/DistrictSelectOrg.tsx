@@ -75,6 +75,7 @@ const DistrictSelectOrg = ({ selected, submitSelect }: Props) => {
         <ChoiceWrapper>
           {nonSelected().map((district) => (
             <div
+              key={district._districtType}
               onClick={() =>
                 setTempSelected((prevState) => {
                   return [...prevState, district];
