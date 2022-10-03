@@ -2,8 +2,8 @@ import React from "react";
 import LoginTemplate from "../../domain/login/components/templates/LoginTemplate";
 import { GetServerSideProps } from "next";
 import axios from "axios";
-import TokenValidator from "../../domain/global/utils/TokenValidator";
-import { ROUTER_PATH } from "../../domain/global/constants/routerPath";
+import TokenValidator from "../../domain/common/utils/TokenValidator";
+import { ROUTER_PATH } from "../../domain/common/constants/routerPath";
 import MatchingOptionService from "../../api/matching/MatchingOptionService";
 
 const Index = () => {

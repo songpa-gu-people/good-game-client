@@ -8,6 +8,22 @@ import { serverConfig } from "../config";
 
 axios.defaults.baseURL = serverConfig.apiUri;
 axios.defaults.withCredentials = true;
+axios.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error) {
+    if (error.response && error.response.status && error.response.status == 401) {
+      return Promise.reject(error);
+    }
+
+    if (error.response && error.response.status && error.response.data.message) {
+      alert(error.response.data.message);
+      return Promise.reject(error);
+    }
+    return Promise.reject(error);
+  },
+);
 
 const queryClient = new QueryClient({
   defaultOptions: {

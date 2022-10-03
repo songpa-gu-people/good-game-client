@@ -3,9 +3,9 @@ import District from "../../enum/District";
 import { AiOutlinePlusSquare } from "react-icons/ai";
 import styled from "@emotion/styled";
 import palette from "../../../../styles/palette";
-import ModalTemplate from "../../../global/components/templates/ModalTemplate";
+import ModalTemplate from "../../../common/components/templates/ModalTemplate";
 import DistrictSelectOrg from "../organisms/DistrictSelectOrg";
-import AddButton from "../../../global/components/atoms/buttons/AddButton";
+import AddButton from "../../../common/components/atoms/buttons/AddButton";
 
 interface Props {
   selectedDistricts: District[];

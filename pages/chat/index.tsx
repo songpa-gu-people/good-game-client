@@ -1,5 +1,5 @@
 import React from "react";
-import BaseTemplateWithFooter from "../../domain/global/components/templates/BaseTemplateWithFooter";
+import BaseTemplateWithFooter from "../../domain/common/components/templates/BaseTemplateWithFooter";
 
 const Index = () => {
   return (

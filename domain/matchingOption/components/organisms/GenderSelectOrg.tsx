@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 import Gender, { GenderType } from "../../enum/Gender";
 import styled from "@emotion/styled";
 import palette from "../../../../styles/palette";
-import Flex from "../../../global/components/atoms/wrapper/Flex";
+import Flex from "../../../common/components/atoms/wrapper/Flex";
 import { css } from "@emotion/react";
 
 const Container = styled.div``;

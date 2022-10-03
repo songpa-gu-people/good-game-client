@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import DistrictSelectModalAndTriggerButton from "../molecules/DistrictSelectModalAndTriggerButton";
-import Flex from "../../../global/components/atoms/wrapper/Flex";
+import Flex from "../../../common/components/atoms/wrapper/Flex";
 import District from "../../enum/District";
 import GenderSelectOrg from "../organisms/GenderSelectOrg";
 import Gender from "../../enum/Gender";
 import MatchingOptionService from "../../../../api/matching/MatchingOptionService";
-import SubmitLargeButton from "../../../global/components/atoms/buttons/SubmitLargeButton";
+import SubmitLargeButton from "../../../common/components/atoms/buttons/SubmitLargeButton";
 import { useRouter } from "next/router";
 
 const Container = styled.div`

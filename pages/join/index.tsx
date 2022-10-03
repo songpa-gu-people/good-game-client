@@ -7,8 +7,8 @@ import { GetServerSideProps } from "next";
 import { wrapper } from "../../store/configStore";
 import axios from "axios";
 import MatchingOptionService from "../../api/matching/MatchingOptionService";
-import { ROUTER_PATH } from "../../domain/global/constants/routerPath";
-import TokenValidator from "../../domain/global/utils/TokenValidator";
+import { ROUTER_PATH } from "../../domain/common/constants/routerPath";
+import TokenValidator from "../../domain/common/utils/TokenValidator";
 
 const Header = styled.div`
   border: 1px solid ${palette.gray_1};

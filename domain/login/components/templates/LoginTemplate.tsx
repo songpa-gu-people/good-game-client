@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import LoginButtonGroup from "../organisms/login/LoginButtonGroup";
-import Flex from "../../../global/components/atoms/wrapper/Flex";
+import Flex from "../../../common/components/atoms/wrapper/Flex";
 
 const Container = styled.div`
   display: flex;

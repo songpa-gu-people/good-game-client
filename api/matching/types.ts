@@ -1,6 +1,4 @@
-import District, {
-  DistrictType,
-} from "../../domain/matchingOption/enum/District";
+import { DistrictType } from "../../domain/matchingOption/enum/District";
 import { GenderType } from "../../domain/matchingOption/enum/Gender";
 
 type Gender = "MAN" | "WOMAN";

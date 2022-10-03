@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import District from "../../enum/District";
 import styled from "@emotion/styled";
-import SubmitLargeButton from "../../../global/components/atoms/buttons/SubmitLargeButton";
-import Flex from "../../../global/components/atoms/wrapper/Flex";
+import SubmitLargeButton from "../../../common/components/atoms/buttons/SubmitLargeButton";
+import Flex from "../../../common/components/atoms/wrapper/Flex";
 
 const Container = styled.div`
   padding: 1rem;

@@ -2,10 +2,10 @@ import React from "react";
 import { GetServerSideProps } from "next";
 import MatchingOptionService from "../api/matching/MatchingOptionService";
 import axios from "axios";
-import { ROUTER_PATH } from "../domain/global/constants/routerPath";
-import TokenValidator from "../domain/global/utils/TokenValidator";
+import { ROUTER_PATH } from "../domain/common/constants/routerPath";
+import TokenValidator from "../domain/common/utils/TokenValidator";
 import HomeTemplate from "../domain/home/components/templates/HomeTemplate";
-import BaseTemplateWithFooter from "../domain/global/components/templates/BaseTemplateWithFooter";
+import BaseTemplateWithFooter from "../domain/common/components/templates/BaseTemplateWithFooter";
 
 const Index = () => {
   return (
