@@ -5,6 +5,9 @@ import { wrapper } from "../store/configStore";
 import { ReactQueryDevtools } from "react-query/devtools";
 import axios from "axios";
 import { serverConfig } from "../config";
+import { useRouter } from "next/router";
+import { ROUTER_PATH } from "../domain/common/constants/routerPath";
+import TokenService from "../api/token/TokenService";
 
 axios.defaults.baseURL = serverConfig.apiUri;
 axios.defaults.withCredentials = true;
@@ -34,6 +37,21 @@ const queryClient = new QueryClient({
 });
 
 const app = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter();
+
+  async function checkLoginOrPushLoginPage() {
+    try {
+      await TokenService.getAccessTokenFromRefresh();
+    } catch (e) {
+      await router.push(ROUTER_PATH.LOGIN);
+    }
+  }
+
+  const anonymousPages = [ROUTER_PATH.JOIN, ROUTER_PATH.LOGIN];
+  if (!anonymousPages.includes(router.pathname)) {
+    checkLoginOrPushLoginPage();
+  }
+
   return (
     <>
       <QueryClientProvider client={queryClient}>

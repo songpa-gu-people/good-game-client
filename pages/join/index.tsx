@@ -38,18 +38,6 @@ const Index = () => {
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
-    axios.defaults.headers["Cookie"] = context.req.headers.cookie;
-    const isValidToken = await TokenValidator.isValidRefreshToken();
-    if (!isValidToken) {
-      return {
-        redirect: {
-          permanent: false,
-          destination: ROUTER_PATH.LOGIN,
-        },
-        props: {},
-      };
-    }
-
     const matchingOption = await MatchingOptionService.getMyMatchingOption();
     if (matchingOption.data.data.exist) {
       return {
