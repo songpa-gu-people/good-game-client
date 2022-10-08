@@ -21,7 +21,6 @@ interface FlexProps {
 
 const Container = styled.div<FlexProps>`
   display: flex;
-
   ${(props) =>
     css`
       flex-direction: ${props.flexDirection};
@@ -32,7 +31,14 @@ const Container = styled.div<FlexProps>`
     `}
 `;
 
-const Flex = ({ children, flexDirection, gap, justifyContent, alignContent, alignItems }: Props) => {
+const Flex = ({
+  children,
+  flexDirection,
+  gap,
+  justifyContent,
+  alignContent,
+  alignItems,
+}: Props) => {
   return (
     <Container
       flexDirection={flexDirection}

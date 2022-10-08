@@ -7,12 +7,11 @@ import Flex from "../atoms/wrapper/Flex";
 import { useRouter } from "next/router";
 
 const Container = styled.div`
-  margin-top: 1rem;
+  padding-top: 1rem;
   position: sticky;
   box-sizing: border-box;
   border-bottom: 1px solid ${palette.gray_1};
-
-  height: 5rem;
+  height: 6rem;
 `;
 
 const Wrapper = styled.div`
