@@ -27,19 +27,16 @@ const Button = styled.button<{ isContains: boolean }>`
 
 interface Props {
   selected: Gender[];
-  setSelectedGenders: Dispatch<SetStateAction<Gender[]>>;
+  setSelectedGenders: (genders: Gender[]) => void;
 }
 
 const GenderSelectOrg = ({ selected, setSelectedGenders }: Props) => {
   function toggleSelectGender(value: Gender) {
     if (selected.includes(value)) {
-      setSelectedGenders((prevState) => {
-        return prevState.filter((gender) => gender !== value);
-      });
+      setSelectedGenders(selected.filter((gender) => gender !== value));
       return;
     }
-
-    setSelectedGenders((prevState) => [...prevState, value]);
+    setSelectedGenders([...selected, value]);
   }
 
   return (

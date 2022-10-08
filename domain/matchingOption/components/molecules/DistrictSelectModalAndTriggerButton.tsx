@@ -9,7 +9,7 @@ import AddButton from "../../../common/components/atoms/buttons/AddButton";
 
 interface Props {
   selectedDistricts: District[];
-  setSelectedDistricts: Dispatch<SetStateAction<District[]>>;
+  setSelectedDistricts: (districts: District[]) => void;
 }
 
 const DistrictSelectModalAndTriggerButton = ({

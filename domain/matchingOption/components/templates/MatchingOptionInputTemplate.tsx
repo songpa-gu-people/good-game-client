@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import DistrictSelectModalAndTriggerButton from "../molecules/DistrictSelectModalAndTriggerButton";
 import Flex from "../../../common/components/atoms/wrapper/Flex";
@@ -8,6 +8,8 @@ import Gender from "../../enum/Gender";
 import MatchingOptionService from "../../../../api/matching/MatchingOptionService";
 import SubmitLargeButton from "../../../common/components/atoms/buttons/SubmitLargeButton";
 import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { MatchingOptionSaveOrUpdateRequest } from "../../../../api/matching/types";
 
 const Container = styled.div`
   display: flex;
@@ -15,6 +17,7 @@ const Container = styled.div`
   flex-direction: column;
   gap: 3rem;
 `;
+
 const Title = styled.div`
   font-size: 1.5rem;
   font-weight: 500;
@@ -35,6 +38,11 @@ const FormTitle = styled.div`
 
 const SelectedDistrictWrapper = styled.div``;
 
+interface IMatchingOptionForm {
+  districts: District[];
+  genders: Gender[];
+}
+
 interface Props {
   districts: District[];
   genders: Gender[];
@@ -42,9 +50,15 @@ interface Props {
 
 const MatchingOptionInputTemplate = ({ districts, genders }: Props) => {
   const router = useRouter();
-  const [selectedDistricts, setSelectedDistricts] = useState<District[]>(districts);
+  const { watch, setValue } = useForm<IMatchingOptionForm>({
+    defaultValues: {
+      districts: districts,
+      genders: genders,
+    },
+  });
 
-  const [selectedGenders, setSelectedGenders] = useState<Gender[]>(genders);
+  const selectedDistricts = watch("districts");
+  const selectedGenders = watch("genders");
 
   async function saveMyMatchingOption() {
     try {
@@ -68,7 +82,7 @@ const MatchingOptionInputTemplate = ({ districts, genders }: Props) => {
             <FormTitle>어디에서</FormTitle>
             <DistrictSelectModalAndTriggerButton
               selectedDistricts={selectedDistricts}
-              setSelectedDistricts={setSelectedDistricts}
+              setSelectedDistricts={(districts) => setValue("districts", districts)}
             />
           </Flex>
           <SelectedDistrictWrapper>
@@ -79,7 +93,10 @@ const MatchingOptionInputTemplate = ({ districts, genders }: Props) => {
         </div>
         <div>
           <FormTitle>누구와</FormTitle>
-          <GenderSelectOrg selected={selectedGenders} setSelectedGenders={setSelectedGenders} />
+          <GenderSelectOrg
+            selected={selectedGenders}
+            setSelectedGenders={(genders) => setValue("genders", genders)}
+          />
         </div>
       </FormWrapper>
       <SubmitLargeButton buttonText={"저장"} onClick={saveMyMatchingOption} />
