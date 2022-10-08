@@ -8,6 +8,7 @@ import { RiWechatLine } from "react-icons/ri";
 import HomeIcon from "../atoms/svgs/HomeIcon";
 import ChatIcon from "../atoms/svgs/ChatIcon";
 import UserIcon from "../atoms/svgs/UserIcon";
+import GroupIcon from "../atoms/svgs/GroupIcon";
 
 const Container = styled.div`
   display: grid;
@@ -24,7 +25,7 @@ const Footer = () => {
   return (
     <Container>
       <FooterItem href={"/"} icon={<HomeIcon />} name={"홈"} />
-      <FooterItem href={"/guild/create"} icon={<HomeIcon />} name={"길드"} />
+      <FooterItem href={"/guild/create"} icon={<GroupIcon />} name={"길드"} />
       <FooterItem href={"/chat"} icon={<ChatIcon />} name={"채팅"} />
       <FooterItem href={"/account"} icon={<UserIcon />} name={"내정보"} />
     </Container>

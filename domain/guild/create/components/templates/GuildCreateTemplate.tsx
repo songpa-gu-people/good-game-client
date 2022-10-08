@@ -5,7 +5,6 @@ import GuildCreateForm from "../organisms/GuildCreateForm";
 import { useForm } from "react-hook-form";
 import { GuildCreateRequest } from "../../../../../api/guild/types";
 import SubmitLargeButton from "../../../../common/components/atoms/buttons/SubmitLargeButton";
-import Flex from "../../../../common/components/atoms/wrapper/Flex";
 import GuildService from "../../../../../api/guild/GuildService";
 
 const Container = styled.div`
@@ -16,13 +15,7 @@ const Container = styled.div`
 
 const BodyWrapper = styled.div`
   box-sizing: border-box;
-  //display: grid;
-  //grid-template-rows: 10rem auto;
-  //display: flex;
-  //flex-direction: column;
-  //justify-content: space-between;
   height: auto;
-  //border: 1px solid blue;
 `;
 
 const FormWrapper = styled.div`
@@ -47,7 +40,7 @@ const GuildCreateTemplate = ({}: Props) => {
   async function submit(data) {
     try {
       await GuildService.createGuild(data);
-      alert("가입완료")
+      alert("가입완료");
     } catch (e) {}
   }
 
