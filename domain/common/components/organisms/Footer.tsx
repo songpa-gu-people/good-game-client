@@ -5,6 +5,9 @@ import { AiOutlineHome } from "react-icons/ai";
 import palette from "../../../../styles/palette";
 import { VscAccount } from "react-icons/vsc";
 import { RiWechatLine } from "react-icons/ri";
+import HomeIcon from "../atoms/svgs/HomeIcon";
+import ChatIcon from "../atoms/svgs/ChatIcon";
+import UserIcon from "../atoms/svgs/UserIcon";
 
 const Container = styled.div`
   display: grid;
@@ -20,10 +23,10 @@ const Container = styled.div`
 const Footer = () => {
   return (
     <Container>
-      <FooterItem href={"/"} icon={<AiOutlineHome />} name={"홈"} />
-      <FooterItem href={"/guild/create"} icon={<AiOutlineHome />} name={"길드"} />
-      <FooterItem href={"/chat"} icon={<RiWechatLine />} name={"채팅"} />
-      <FooterItem href={"/account"} icon={<VscAccount />} name={"내정보"} />
+      <FooterItem href={"/"} icon={<HomeIcon />} name={"홈"} />
+      <FooterItem href={"/guild/create"} icon={<HomeIcon />} name={"길드"} />
+      <FooterItem href={"/chat"} icon={<ChatIcon />} name={"채팅"} />
+      <FooterItem href={"/account"} icon={<UserIcon />} name={"내정보"} />
     </Container>
   );
 };
