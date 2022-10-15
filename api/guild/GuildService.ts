@@ -7,4 +7,7 @@ export default class GuildService {
     await AxiosService.settingAccessTokenToHeader();
     return await axios.post(`/api/v1/guild`, data);
   }
+
+  static async findAllGuild(page) {}
+
 }

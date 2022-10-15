@@ -8,3 +8,8 @@ export interface ApiResponse<T> {
   };
   code: number;
 }
+
+export interface PageResponse {
+  totalPageSize: number;
+  currentPage: number;
+}
