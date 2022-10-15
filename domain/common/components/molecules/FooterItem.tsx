@@ -8,9 +8,6 @@ const Container = styled.div`
   flex-direction: column;
   gap: 0.2rem;
   padding: 0.5rem;
-  
-  & > a {
-  }
 `;
 
 const IconWrapper = styled.div`

@@ -3,5 +3,10 @@ export const ROUTER_PATH = {
   LOGIN: "/login",
   JOIN: "/join",
 
+  CHAT: "/chat",
+
+  ACCOUNT: "/account",
+
+  GUILD: "/guild",
   GUILD_CREATE: "/guild/create",
 };

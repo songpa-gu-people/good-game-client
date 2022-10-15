@@ -9,6 +9,8 @@ import HomeIcon from "../atoms/svgs/HomeIcon";
 import ChatIcon from "../atoms/svgs/ChatIcon";
 import UserIcon from "../atoms/svgs/UserIcon";
 import GroupIcon from "../atoms/svgs/GroupIcon";
+import { useRouter } from "next/router";
+import { ROUTER_PATH } from "../../constants/routerPath";
 
 const Container = styled.div`
   display: grid;
@@ -22,12 +24,37 @@ const Container = styled.div`
 `;
 
 const Footer = () => {
+  const router = useRouter();
+
+  function getColorByPath(pathName): string {
+    if (router.pathname === pathName) {
+      return palette.blue_2;
+    }
+    return "#333";
+  }
+
   return (
     <Container>
-      <FooterItem href={"/"} icon={<HomeIcon />} name={"홈"} />
-      <FooterItem href={"/guild"} icon={<GroupIcon />} name={"길드"} />
-      <FooterItem href={"/chat"} icon={<ChatIcon />} name={"채팅"} />
-      <FooterItem href={"/account"} icon={<UserIcon />} name={"내정보"} />
+      <FooterItem
+        href={ROUTER_PATH.INDEX}
+        icon={<HomeIcon color={getColorByPath(ROUTER_PATH.INDEX)} />}
+        name={"홈"}
+      />
+      <FooterItem
+        href={ROUTER_PATH.GUILD}
+        icon={<GroupIcon color={getColorByPath(ROUTER_PATH.GUILD)} />}
+        name={"길드"}
+      />
+      <FooterItem
+        href={ROUTER_PATH.CHAT}
+        icon={<ChatIcon color={getColorByPath(ROUTER_PATH.CHAT)} />}
+        name={"채팅"}
+      />
+      <FooterItem
+        href={ROUTER_PATH.ACCOUNT}
+        icon={<UserIcon color={getColorByPath(ROUTER_PATH.ACCOUNT)} />}
+        name={"내정보"}
+      />
     </Container>
   );
 };
