@@ -6,7 +6,7 @@ import District from "../../enum/District";
 import GenderSelectOrg from "../organisms/GenderSelectOrg";
 import Gender from "../../enum/Gender";
 import MatchingOptionService from "../../../../api/matching/MatchingOptionService";
-import SubmitLargeButton from "../../../common/components/atoms/buttons/SubmitLargeButton";
+import LargeButton from "../../../common/components/atoms/buttons/LargeButton";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { MatchingOptionSaveOrUpdateRequest } from "../../../../api/matching/types";
@@ -99,7 +99,7 @@ const MatchingOptionInputTemplate = ({ districts, genders }: Props) => {
           />
         </div>
       </FormWrapper>
-      <SubmitLargeButton buttonText={"저장"} onClick={saveMyMatchingOption} />
+      <LargeButton onClick={saveMyMatchingOption}>저장</LargeButton>
     </Container>
   );
 };

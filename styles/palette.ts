@@ -1,6 +1,6 @@
 export default {
   white: "#ffffff",
-  gray_1: "#dcdcdc",
+  gray_1: "#eaeaea",
   gray_2: "#c9c9c9",
   gray_3: "#999999",
   gray_4: "#6c6c6c",

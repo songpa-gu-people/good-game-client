@@ -25,7 +25,7 @@ const Footer = () => {
   return (
     <Container>
       <FooterItem href={"/"} icon={<HomeIcon />} name={"홈"} />
-      <FooterItem href={"/guild/create"} icon={<GroupIcon />} name={"길드"} />
+      <FooterItem href={"/guild"} icon={<GroupIcon />} name={"길드"} />
       <FooterItem href={"/chat"} icon={<ChatIcon />} name={"채팅"} />
       <FooterItem href={"/account"} icon={<UserIcon />} name={"내정보"} />
     </Container>

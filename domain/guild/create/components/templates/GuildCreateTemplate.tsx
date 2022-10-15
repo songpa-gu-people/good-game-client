@@ -1,10 +1,10 @@
 import React from "react";
-import BasicHeader from "../../../../common/components/organisms/BasicHeader";
+import HeaderBasic from "../../../../common/components/organisms/HeaderBasic";
 import styled from "@emotion/styled";
 import GuildCreateForm from "../organisms/GuildCreateForm";
 import { useForm } from "react-hook-form";
 import { GuildCreateRequest } from "../../../../../api/guild/types";
-import SubmitLargeButton from "../../../../common/components/atoms/buttons/SubmitLargeButton";
+import LargeButton from "../../../../common/components/atoms/buttons/LargeButton";
 import GuildService from "../../../../../api/guild/GuildService";
 
 const Container = styled.div`
@@ -46,13 +46,13 @@ const GuildCreateTemplate = ({}: Props) => {
 
   return (
     <Container>
-      <BasicHeader title={"길드 생성"} />
+      <HeaderBasic title={"길드 생성"} />
       <BodyWrapper>
         <FormWrapper>
           <GuildCreateForm guildCreateRequestForm={guildCreateRequestForm} />
         </FormWrapper>
         <ButtonWrapper>
-          <SubmitLargeButton buttonText={"저장"} onClick={handleSubmit(submit)} />
+          <LargeButton onClick={handleSubmit(submit)}>저장</LargeButton>
         </ButtonWrapper>
       </BodyWrapper>
     </Container>

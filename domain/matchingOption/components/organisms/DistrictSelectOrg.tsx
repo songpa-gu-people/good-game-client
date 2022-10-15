@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import District from "../../enum/District";
 import styled from "@emotion/styled";
-import SubmitLargeButton from "../../../common/components/atoms/buttons/SubmitLargeButton";
+import LargeButton from "../../../common/components/atoms/buttons/LargeButton";
 import Flex from "../../../common/components/atoms/wrapper/Flex";
 
 const Container = styled.div`
@@ -60,7 +60,8 @@ const DistrictSelectOrg = ({ selected, submitSelect }: Props) => {
             {tempSelected
               .sort((o1, o2) => o1._name.localeCompare(o2._name))
               .map((district) => (
-                <div key={district._districtType}
+                <div
+                  key={district._districtType}
                   onClick={() =>
                     setTempSelected((prevState) => {
                       return prevState.filter((pre) => pre != district);
@@ -89,10 +90,7 @@ const DistrictSelectOrg = ({ selected, submitSelect }: Props) => {
       </Flex>
 
       <SubmitWrapper>
-        <SubmitLargeButton
-          buttonText={"저장"}
-          onClick={() => submitSelect(tempSelected)}
-        />
+        <LargeButton onClick={() => submitSelect(tempSelected)}>저장</LargeButton>
       </SubmitWrapper>
     </Container>
   );
