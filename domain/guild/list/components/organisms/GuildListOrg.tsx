@@ -1,16 +1,16 @@
-import React from "react";
-import { GuildResponse } from "../../../../../api/guild/types";
+import React, { useRef } from "react";
+import { GuildFindContent } from "../../../../../api/guild/types";
 import GuildListItem from "../molecules/GuildListItem";
 
 interface Props {
-  guildResponses: GuildResponse[];
+  guildResponses: GuildFindContent[];
 }
 
 const GuildListOrg = ({ guildResponses }: Props) => {
   return (
     <div>
       {guildResponses.map((guild) => (
-        <GuildListItem guild={guild} />
+        <GuildListItem key={guild.guildId} guild={guild} />
       ))}
     </div>
   );

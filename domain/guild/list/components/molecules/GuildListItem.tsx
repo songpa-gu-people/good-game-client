@@ -1,5 +1,5 @@
 import React from "react";
-import { GuildResponse } from "../../../../../api/guild/types";
+import { GuildFindContent } from "../../../../../api/guild/types";
 import styled from "@emotion/styled";
 import palette from "../../../../../styles/palette";
 
@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 interface Props {
-  guild: GuildResponse;
+  guild: GuildFindContent;
 }
 
 const GuildListItem = ({ guild }: Props) => {

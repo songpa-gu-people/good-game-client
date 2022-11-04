@@ -1,8 +1,7 @@
-import React from "react";
-import { GuildResponses } from "../../../../../api/guild/types";
+import React, { useRef } from "react";
+import { GuildFindContent } from "../../../../../api/guild/types";
 import styled from "@emotion/styled";
 import GuildListOrg from "../organisms/GuildListOrg";
-import SmallButton from "../../../../common/components/atoms/buttons/SmallButton";
 import AddButton from "../../../../common/components/atoms/buttons/AddButton";
 import { useRouter } from "next/router";
 import { ROUTER_PATH } from "../../../../common/constants/routerPath";
@@ -24,14 +23,16 @@ const GuildCreatButtonWrapper = styled.div`
 `;
 
 interface Props {
-  guildResponses: GuildResponses;
+  guildFindContents: GuildFindContent[];
+  setPageSize;
 }
 
-const GuildListTemplate = ({ guildResponses }: Props) => {
+const GuildListTemplate = ({ guildFindContents }: Props) => {
   const router = useRouter();
+
   return (
     <Container>
-      <GuildListOrg guildResponses={guildResponses.guildResponses} />
+      <GuildListOrg guildResponses={guildFindContents} />
       <GuildCreatButtonWrapper>
         <AddButton
           onClick={() => {

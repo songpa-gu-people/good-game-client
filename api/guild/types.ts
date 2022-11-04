@@ -4,12 +4,20 @@ export interface GuildCreateRequest {
   guildName: string;
 }
 
-export interface GuildResponses {
-  guildResponses: GuildResponse[];
+export interface GuildFindMoreRequest {
+  pageNumber?: number;
+  size?: number;
+  guildName?: string;
+}
+
+export interface GuildFindAdapterAnswer {
+  contents: GuildFindContent[];
   pageResponse: PageResponse;
 }
 
-export interface GuildResponse {
-  guildName: string;
+export interface GuildFindContent {
+  guildId: number;
   guildNumber: string;
+  guildMemberSize: number;
+  guildName: string;
 }

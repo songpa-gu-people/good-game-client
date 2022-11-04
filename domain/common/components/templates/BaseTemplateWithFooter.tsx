@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 const Container = styled.div`
   display: grid;
   grid-template-rows: 12.5fr 1fr;
-
+  grid-gap: 1rem;
   height: 100vh;
 
   & > div:nth-of-type(1) {
