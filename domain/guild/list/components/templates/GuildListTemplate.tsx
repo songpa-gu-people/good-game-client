@@ -16,8 +16,8 @@ const Container = styled.div`
 `;
 
 const GuildCreatButtonWrapper = styled.div`
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: 4rem;
   right: 0;
   margin: 1rem;
 `;
