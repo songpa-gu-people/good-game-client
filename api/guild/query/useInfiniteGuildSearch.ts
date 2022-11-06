@@ -4,7 +4,7 @@ import GuildService from "../GuildService";
 
 const fetchGuild = async (pageNumber, request: GuildFindMoreRequest) => {
   const res = await GuildService.searchGuild({ ...request, pageNumber: pageNumber });
-  const existNext = res.data.data.pageResponse.totalPageSize > pageNumber;
+  const existNext = res.data.data.pageResponse.totalPageSize > pageNumber + 1;
   return { guilds: res.data.data.contents, nextPage: pageNumber + 1, existNext: existNext };
 };
 
