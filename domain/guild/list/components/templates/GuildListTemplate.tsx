@@ -1,10 +1,13 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { GuildFindContent } from "../../../../../api/guild/types";
 import styled from "@emotion/styled";
 import GuildListOrg from "../organisms/GuildListOrg";
 import AddButton from "../../../../common/components/atoms/buttons/AddButton";
 import { useRouter } from "next/router";
 import { ROUTER_PATH } from "../../../../common/constants/routerPath";
+import { useInView } from "react-intersection-observer";
+import { useInfiniteGuildSearch } from "../../../../../api/guild/query/useInfiniteGuildSearch";
+import Loading from "../../../../common/components/molecules/Loading";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -22,17 +25,27 @@ const GuildCreatButtonWrapper = styled.div`
   margin: 1rem;
 `;
 
-interface Props {
-  guildFindContents: GuildFindContent[];
-  setPageSize;
-}
+const EndLine = styled.div`
+  padding: 0.5rem;
+`;
 
-const GuildListTemplate = ({ guildFindContents }: Props) => {
+
+interface Props {}
+
+const GuildListTemplate = ({}: Props) => {
   const router = useRouter();
+  const { ref, inView } = useInView();
+  const { data, fetchNextPage, isFetchingNextPage } = useInfiniteGuildSearch({ size: 6 });
+
+  useEffect(() => {
+    if (inView) fetchNextPage();
+  }, [inView]);
 
   return (
     <Container>
-      <GuildListOrg guildResponses={guildFindContents} />
+      {data?.pages.map((page, index) => (
+        <GuildListOrg key={index} guildResponses={page.guilds} />
+      ))}
       <GuildCreatButtonWrapper>
         <AddButton
           onClick={() => {
@@ -40,6 +53,7 @@ const GuildListTemplate = ({ guildFindContents }: Props) => {
           }}
         />
       </GuildCreatButtonWrapper>
+      {isFetchingNextPage ? <Loading /> : <EndLine ref={ref} />}
     </Container>
   );
 };
