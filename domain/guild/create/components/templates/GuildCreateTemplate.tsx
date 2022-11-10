@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { GuildCreateRequest } from "../../../../../api/guild/types";
 import LargeButton from "../../../../common/components/atoms/buttons/LargeButton";
 import GuildService from "../../../../../api/guild/GuildService";
+import { useInfiniteGuildSearch } from "../../../../../api/guild/query/useInfiniteGuildSearch";
 
 const Container = styled.div`
   position: relative;
@@ -34,12 +35,14 @@ interface Props {}
 
 const GuildCreateTemplate = ({}: Props) => {
   const guildCreateRequestForm = useForm<GuildCreateRequest>();
+  const { refetch } = useInfiniteGuildSearch({});
 
   const { handleSubmit } = guildCreateRequestForm;
 
   async function submit(data) {
     try {
       await GuildService.createGuild(data);
+      refetch();
       alert("가입완료");
     } catch (e) {}
   }

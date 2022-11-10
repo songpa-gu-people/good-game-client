@@ -29,13 +29,12 @@ const EndLine = styled.div`
   padding: 0.5rem;
 `;
 
-
 interface Props {}
 
 const GuildListTemplate = ({}: Props) => {
   const router = useRouter();
   const { ref, inView } = useInView();
-  const { data, fetchNextPage, isFetchingNextPage } = useInfiniteGuildSearch({ size: 6 });
+  const { data, fetchNextPage, isFetchingNextPage } = useInfiniteGuildSearch({});
 
   useEffect(() => {
     if (inView) fetchNextPage();
